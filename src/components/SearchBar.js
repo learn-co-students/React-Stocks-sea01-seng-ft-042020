@@ -1,23 +1,24 @@
 import React from 'react';
 
-const SearchBar = () => {
+const SearchBar = (props) => {
   return (
     <div>
 
       <strong>Sort by:</strong>
       <label>
-        <input type="radio" value="Alphabetically" checked={null} onChange={null}/>
+        <input id="Alph" type="checkbox" value="Alphabetically" checked={null} onChange={(event) => props.sortStocks(event)}/>
         Alphabetically
       </label>
       <label>
-        <input type="radio" value="Price" checked={null} onChange={null}/>
+        <input id="Price" type="checkbox" value="Price" checked={null} onChange={(event) => props.sortStocks(event)}/>
         Price
       </label>
       <br/>
 
       <label>
         <strong>Filter:</strong>
-        <select onChange={null}>
+        <select onChange={(event) => props.filterStocks(event)}>
+          <option value="All">All</option>
           <option value="Tech">Tech</option>
           <option value="Sportswear">Sportswear</option>
           <option value="Finance">Finance</option>
@@ -27,6 +28,7 @@ const SearchBar = () => {
 
     </div>
   );
+
 }
 
 
